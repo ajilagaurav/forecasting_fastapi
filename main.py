@@ -8,10 +8,8 @@ from app.routers.roles_router import router as roles_router
 app = FastAPI()
 
 # Include routers
-app.include_router(board_router)
 app.include_router(main_board_router)
-app.include_router(users_router)
-app.include_router(roles_router)
+app.include_router(board_router)
 app.include_router(forecast_router)
 
 

@@ -7,7 +7,6 @@ class ForecastRepository:
         self.dataset = dataset
 
     def analyze_columns(self):
-        # Only sample a few rows to speed up the process
         sample_df = self.dataset.sample(min(1000, len(self.dataset)))  # Sample up to 1000 rows
         
         # Detect date columns

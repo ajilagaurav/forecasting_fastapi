@@ -1,13 +1,9 @@
 # app/routers/users_router.py
 from fastapi import APIRouter, HTTPException
 from app.models.users import User
-from app.repositories.users_repository import UsersRepository
-from app.repositories.roles_repository import RolesRepository
+from app.repositories import users_repository, roles_repository
 
 router = APIRouter(prefix="/users", tags=["Users"])
-
-users_repository = UsersRepository()
-roles_repository = RolesRepository()
 
 @router.post("/", response_model=User)
 async def create_user(user: User):

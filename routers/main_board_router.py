@@ -5,13 +5,11 @@ from app.models.main_board import MainBoard
 from app.repositories.main_board_repository import MainBoardRepository
 
 router = APIRouter(prefix="/main-boards", tags=["Main Boards"])
-
 main_board_repository = MainBoardRepository()
 
 @router.post("/", response_model=MainBoard)
 async def create_main_board(main_board: MainBoard):
-    created_main_board = main_board_repository.create_main_board(main_board)
-    return created_main_board
+    return main_board_repository.create_main_board(main_board)
 
 @router.get("/", response_model=List[MainBoard])
 async def get_all_main_boards():

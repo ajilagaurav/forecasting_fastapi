@@ -2,11 +2,9 @@
 from fastapi import APIRouter, HTTPException
 from app.models.roles import Role
 from app.models.role_assignment import RoleAssignment
-from app.repositories.roles_repository import RolesRepository
+from app.repositories import roles_repository
 
 router = APIRouter(prefix="/roles", tags=["Roles"])
-
-roles_repository = RolesRepository()
 
 @router.post("/", response_model=Role)
 async def create_role(role: Role):
